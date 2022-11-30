@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  runtime: 'experimental-edge',
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   env: {
     AIRTABLE_KEY: process.env.AIRTABLE_KEY,
   },
