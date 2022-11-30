@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  runtime: 'experimental-edge',
   env: {
     AIRTABLE_KEY: process.env.AIRTABLE_KEY,
   },
