@@ -1,11 +1,11 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 import React from "react";
-import { getAllEvents } from "../../services/sort-event-data";
 
 
 
 const websiteUrl = "https://www.desci.global/";
+
 
 const font = fetch(new URL(`${websiteUrl}/fonts/ABC_Monument_Grotesk/ABCMonumentGrotesk-Medium.otf`, import.meta.url)).then(
   (res) => res.arrayBuffer(),
@@ -15,11 +15,11 @@ export const config = {
   runtime: "experimental-edge"
 }
 
-async function handler() {
+export default async function () {
   const fontData = await font;
 
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = await getAllEvents();
-  console.log(upcomingEventsAsc)
+  // const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = await getAllEvents();
+  // console.log(upcomingEventsAsc)
 
  
 
@@ -60,4 +60,3 @@ async function handler() {
   });
 };
 
-export default handler;
