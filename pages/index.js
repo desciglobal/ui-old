@@ -13,6 +13,8 @@ import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
 
+import Head from "next/head";
+
 
 export default function Home(props) {
   const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = props;

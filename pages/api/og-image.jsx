@@ -3,14 +3,14 @@ import { get } from "http";
 import { NextRequest } from "next/server";
 import React from "react";
 
-
-
 const websiteUrl = "https://www.desci.global/";
 
-
-const font = fetch(new URL(`${websiteUrl}/fonts/ABC_Monument_Grotesk/ABCMonumentGrotesk-Medium.otf`, import.meta.url)).then(
-  (res) => res.arrayBuffer(),
-);
+const font = fetch(
+  new URL(
+    `${websiteUrl}/fonts/ABC_Monument_Grotesk/ABCMonumentGrotesk-Medium.otf`,
+    import.meta.url
+  )
+).then((res) => res.arrayBuffer());
 
 // fetch('http://localhost:3000/api/og-image', {  headers: {
 //   'Accept': 'application/json',
@@ -18,41 +18,50 @@ const font = fetch(new URL(`${websiteUrl}/fonts/ABC_Monument_Grotesk/ABCMonument
 //   .then((response) => response.json())
 //   .then((data) => console.log(data));
 
-fetch('http://localhost:3000/api/featuredEvents').then(function (response) {
-	// The API call was successful!
-	console.log(response.body);
-}).catch(function (error) {
-	// There was an error
-	console.warn(error);
-});
-
+fetch("http://localhost:3000/api/featuredEvents")
+  .then(function (response) {
+    // The API call was successful!
+    console.log(response.body);
+  })
+  .catch(function (error) {
+    // There was an error
+    console.warn(error);
+  });
 
 export const config = {
-  runtime: "experimental-edge"
-}
+  runtime: "experimental-edge",
+};
 
 export default async function () {
   const fontData = await font;
   // const eventsData = await events;
   // console.log(eventsData)
- 
-
-
- 
 
   return new ImageResponse(
     (
       <div tw="flex h-full ">
         <div tw="flex flex-col w-1/2 p-[48px]">
-          <div tw="flex h-10" >
-          <img
-            tw="h-full"
-            src={`${websiteUrl}/images/dynamic-og/og-logo-small.svg`}
-            alt="Prism"
-          />
+          <div tw="flex h-10">
+            <img
+              tw="h-full"
+              src={`${websiteUrl}/images/dynamic-og/og-logo-small.svg`}
+              alt="Prism"
+            />
           </div>
           <h1 tw="text-[52px]">Join global DeSci Events</h1>
-          <p tw="text-[26px]">Hello</p>
+          <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
+            <div>DeSci London 2023</div>
+            <div>15 Jan 2023</div>
+          </div>
+          <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
+            <div>DeSci Denver</div>
+            <div>24 Feb 2023</div>
+          </div>
+          <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
+            <div>DeSci Boston</div>
+            <div>23 Sep 2023</div>
+          </div>
+          <div tw="flex h-10 bg-[#1231D5] mt-10 p-2 text-white rounded-full w-full items-center text-xl justify-center">Join the Network</div>
         </div>
         <div tw="flex w-1/2 h-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -63,17 +72,16 @@ export default async function () {
           />
         </div>
       </div>
+    ),
 
-   
-  ),
-  {
-    fonts: [
-      {
-        name: "Inter",
-        data: fontData,
-        weight: 500,
-      }
-    ],
-  });
-};
-
+    {
+      fonts: [
+        {
+          name: "Inter",
+          data: fontData,
+          weight: 500,
+        },
+      ],
+    }
+  );
+}
