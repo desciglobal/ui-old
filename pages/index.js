@@ -4,6 +4,7 @@ import HeroSection from "../components/sections/hero/s-hero";
 import AllEventsSection from "../components/sections/allevents/s-allevents";
 import ResourcesSectionOne from "../components/sections/resources/s-resources-1";
 import ResourcesSectionTwo from "../components/sections/resources/s-resources-2";
+import ResourcesSectionThree from "../components/sections/resources/s-resources-3";
 import VideoSection from "../components/sections/videos/sectionvideos";
 import ContributeSection from "../components/sections/ contribute/s-contribute";
 import ContributorsSection from "../components/sections/ contribute/s-contributors";

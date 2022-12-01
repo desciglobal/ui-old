@@ -10,7 +10,7 @@ const DUMMY_CONTRIBUTORS = [
         id: 'c3',
         name: 'Vincent Weisser',
         twitter: '@vincentweisser',
-        twitterLink: 'https://twitter.com/vincentweisse',
+        twitterLink: 'https://twitter.com/vincentweisser',
         image: 'https://pbs.twimg.com/profile_images/1483740433461264384/7EQIjO7l_400x400.jpg',
       },
       {
@@ -40,6 +40,13 @@ const DUMMY_CONTRIBUTORS = [
         twitter: '@stadolf',
         twitterLink: 'https://twitter.com/stadolf',
         image: 'https://pbs.twimg.com/profile_images/1575813714074288128/WPbozI2C_400x400.jpg',
+      },
+      {
+        id: 'c16',
+        name: 'Alex Dobrin',
+        twitter: '@alxdobrin',
+        twitterLink: 'https://twitter.com/alxdobrin',
+        image: '/images/alex-dobrin.jpg',
       },
   ];
   
