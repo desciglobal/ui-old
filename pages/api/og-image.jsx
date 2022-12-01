@@ -1,6 +1,4 @@
 import { ImageResponse } from "@vercel/og";
-import { get } from "http";
-import { NextRequest } from "next/server";
 import React from "react";
 
 const websiteUrl = "https://www.desci.global/";
@@ -18,15 +16,6 @@ const font = fetch(
 //   .then((response) => response.json())
 //   .then((data) => console.log(data));
 
-fetch("http://localhost:3000/api/featuredEvents")
-  .then(function (response) {
-    // The API call was successful!
-    console.log(response.body);
-  })
-  .catch(function (error) {
-    // There was an error
-    console.warn(error);
-  });
 
 export const config = {
   runtime: "experimental-edge",
@@ -39,8 +28,8 @@ export default async function () {
 
   return new ImageResponse(
     (
-      <div tw="flex h-full">
-        <div tw="flex flex-col w-1/2 p-[48px] bg-white">
+      <div tw="flex h-full s">
+        <div tw="flex flex-col w-1/2 p-[48px] bg-[#FFFFFF]">
           <div tw="flex h-10">
             <img
               tw="h-full"
