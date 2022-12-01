@@ -39,8 +39,8 @@ export default async function () {
 
   return new ImageResponse(
     (
-      <div tw="flex h-full ">
-        <div tw="flex flex-col w-1/2 p-[48px]">
+      <div tw="flex h-full">
+        <div tw="flex flex-col w-1/2 p-[48px] bg-white">
           <div tw="flex h-10">
             <img
               tw="h-full"
