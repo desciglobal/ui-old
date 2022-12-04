@@ -1,8 +1,13 @@
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
+import { MixpanelTracking } from "../../../services/mixpanel";
 
 function AllEventsSection(props) {
   const { upComingEvents, pastEvents } = props;
+
+  function trackEventLinkClicked(eventName) {
+    MixpanelTracking.getInstance().eventLinkClicked(eventName);
+  }
 
   return (
     <section id="events">
@@ -51,6 +56,7 @@ function AllEventsSection(props) {
                       className="lg:hover:underline lg:font-normal font-medium"
                       target={"_blank"}
                       href={event.event_link}
+                      onClick={() => trackEventLinkClicked(event.event_title )}
                     >
                       {event.event_title}
                     </a>
@@ -115,7 +121,6 @@ function AllEventsSection(props) {
             <div className="pt-4 pb-4 text-descigreyfont">
               <ul>
                 {pastEvents.map((event) => {
-
                   return (
                     <li key={event.id}>
                       <div className="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-xl">

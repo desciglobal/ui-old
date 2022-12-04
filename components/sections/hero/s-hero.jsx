@@ -4,6 +4,7 @@ import Navigation from "./navigation";
 import Backdrop from "../../modal-and-forms/backdrop";
 import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
 import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
+import { MixpanelTracking } from "../../../services/mixpanel";
 
 
 import { useState } from "react";
@@ -29,6 +30,10 @@ function HeroSection() {
   function closeEmailHandler() {
     setEmailisOpen(false);
     document.body.style.overflow = "scroll";
+  }
+
+  function trackCalendarSubscribed(){
+    MixpanelTracking.getInstance().calendarSubscribed("hero");
   }
 
   return (
@@ -86,9 +91,10 @@ function HeroSection() {
                     <a
                       href="https://calendar.google.com/calendar/u/0/r?cid=3lql6qf1smr21uaf4kb7hdfg8btdq6v2@import.calendar.google.com"
                       target="_blank"
+                      onClick={trackCalendarSubscribed}
                     >
                       Subscribe to event calendar
-                    </a>
+                      </a>
                   </div>
                   <div className="w-12 h-12 ml-2 bg-black flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">

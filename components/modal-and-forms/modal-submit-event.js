@@ -6,6 +6,7 @@ import * as yup from "yup";
 import LocationSearchInput from "./EventLocationInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { airtablePostEvent } from "../../services/airtable";
+import { MixpanelTracking } from '../../services/mixpanel';
 
 function ModalSubmitEvent(props) {
   const schema = yup
@@ -59,6 +60,7 @@ function ModalSubmitEvent(props) {
     data.event_date = date.toISOString();
     data.event_timezone = timeZone;
     airtablePostEvent(data);
+    MixpanelTracking.getInstance().eventSubmitted(data.event_title)
 
     // try {
     //   return await airtablePostEvent(data);

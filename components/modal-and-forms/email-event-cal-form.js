@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { MixpanelTracking } from "../../services/mixpanel";
+
 
 function EmailandEventCalForm() {
   const schema = yup
@@ -25,6 +27,11 @@ function EmailandEventCalForm() {
       body: JSON.stringify(data),
     }).then((response) => console.log("API Response :", response));
   };
+
+  function trackCalendarSubscribed(){
+    MixpanelTracking.getInstance().calendarSubscribed("form");
+  }
+
 
   return (
     <>
@@ -68,6 +75,7 @@ function EmailandEventCalForm() {
               target="_blank"
               type="submit"
               className="lg:text-2xl bg-white"
+              onClick={trackCalendarSubscribed}
             >
               Add
             </a>
