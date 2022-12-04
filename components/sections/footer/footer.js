@@ -82,11 +82,11 @@ function Footer() {
             </div>
             <div className="bg-white h-[100%] w-[50%] flex items-center justify-end  lg:pl-0 pl-10 pr-[8%]">
               <a
-                href="https://openprest.com/"
+                href="https://molecule.to/"
                 target="_blank"
                 rel={"noreferrer"}
               >
-                Designed with Openprest®
+                Initiated by Molecule
               </a>
             </div>
           </div>
