@@ -3,8 +3,6 @@ import { useEffect } from "react";
 
 import HeroSection from "../components/sections/hero/s-hero";
 import AllEventsSection from "../components/sections/allevents/s-allevents";
-import ResourcesSectionOne from "../components/sections/resources/s-resources-1";
-import ResourcesSectionTwo from "../components/sections/resources/s-resources-2";
 import ResourcesSectionThree from "../components/sections/resources/s-resources-3";
 import VideoSection from "../components/sections/videos/sectionvideos";
 import ContributeSection from "../components/sections/ contribute/s-contribute";
@@ -30,10 +28,10 @@ export default function Home(props) {
       <FeaturedSection featuredEvents={featuredEvents}/>
       <FeaturedSectionMobile featuredEvents={featuredEvents}/>
       <AllEventsSection upComingEvents={upcomingEventsAsc} pastEvents={pastEventsDesc}/>
-      <ResourcesSectionOne />
-      <ResourcesSectionTwo />
-      <VideoSection />
+      <ResourcesSectionThree/>
       <ContributeSection />
+      <VideoSection />
+  
       <ContributorsSection />
       <PartnerLogoSection />
       <Footer />
