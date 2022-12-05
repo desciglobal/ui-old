@@ -47,9 +47,9 @@ export async function airtablePostEvent(data) {
     event_end_date,
   } = data;
 
-  if (!event_title || !event_date || !event_link || !event_image) {
-    throw new Error("Missing argument for airtable postEvent");
-  }
+  // if (!event_title || !event_date || !event_link || !event_image) {
+  //   throw new Error("Missing argument for airtable postEvent");
+  // }
 
   try {
     await base("eventsTemp").create({
