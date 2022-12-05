@@ -58,10 +58,10 @@ function ModalSubmitEvent(props) {
     data.event_date = date.toISOString();
     data.event_timezone = timeZone;
     // airtablePostEvent(data);
-    MixpanelTracking.getInstance().eventSubmitted(data.event_title);
 
     try {
       await airtablePostEvent(data);
+      MixpanelTracking.getInstance().eventSubmitted(data.event_title);
       alert("Your Event was submitted, you can close the modal now!");
     } catch (err) {
       console.log(err);
