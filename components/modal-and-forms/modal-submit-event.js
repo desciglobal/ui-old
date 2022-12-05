@@ -64,8 +64,7 @@ function ModalSubmitEvent(props) {
       MixpanelTracking.getInstance().eventSubmitted(data.event_title);
       alert("Your Event was submitted, you can close the modal now!");
     } catch (err) {
-      console.log(err);
-      alert("Error posting data to Airtable");
+      alert(`Error submitting event to Airtable: ${err.message}`);
     }
   };
 

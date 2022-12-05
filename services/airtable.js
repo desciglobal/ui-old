@@ -70,8 +70,7 @@ export async function airtablePostEvent(data) {
 
     return record.getId();
   } catch (err) {
-    console.log(err);
-    throw new Error("Error posting event to Airtable");
+    throw new Error(`Error posting event to Airtable: ${err.message}`);
   }
 }
 
