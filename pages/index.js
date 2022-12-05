@@ -31,7 +31,6 @@ export default function Home(props) {
       <ResourcesSectionThree/>
       <ContributeSection />
       <VideoSection />
-  
       <ContributorsSection />
       <PartnerLogoSection />
       <Footer />
