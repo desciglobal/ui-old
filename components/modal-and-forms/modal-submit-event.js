@@ -6,7 +6,7 @@ import * as yup from "yup";
 import LocationSearchInput from "./EventLocationInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { airtablePostEvent } from "../../services/airtable";
-import { MixpanelTracking } from '../../services/mixpanel';
+import { MixpanelTracking } from "../../services/mixpanel";
 
 function ModalSubmitEvent(props) {
   const schema = yup
@@ -45,7 +45,6 @@ function ModalSubmitEvent(props) {
     // .catch((error) => console.error("Error", error));
   }, [latLng]);
 
-
   const {
     register,
     handleSubmit,
@@ -53,24 +52,20 @@ function ModalSubmitEvent(props) {
   } = useForm({ resolver: yupResolver(schema) });
 
   // posting data to Airtable and catching errors
-
   const onSubmit = async (data) => {
     data.event_address = address;
     const date = new Date(data.event_date);
     data.event_date = date.toISOString();
     data.event_timezone = timeZone;
-    airtablePostEvent(data);
-    MixpanelTracking.getInstance().eventSubmitted(data.event_title)
+    // airtablePostEvent(data);
 
-    // try {
-    //   return await airtablePostEvent(data);
-    // } catch (err) {
-    //   alert("Error posting data to Airtable: ", err);
-    // }
-
-    
-    alert("Your Event was submitted, you can close the modal now!");
-
+    try {
+      await airtablePostEvent(data);
+      MixpanelTracking.getInstance().eventSubmitted(data.event_title);
+      alert("Your Event was submitted, you can close the modal now!");
+    } catch (err) {
+      alert(`Error submitting event to Airtable: ${err.message}`);
+    }
   };
 
   return (
